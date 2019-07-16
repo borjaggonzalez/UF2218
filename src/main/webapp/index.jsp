@@ -1,22 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<%@include file="resources/includes/header.jsp"%>
+<%@include file="resources/includes/navbar.jsp"%>
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+	
+	
+	<h1 class="text-success">Hello Java Web App 3.1</h1>
+
+
+	<ul class="list-group text-primary">
+		<li class="list-group-item"><a href="ejemplos/basico.jsp">Ejemplo Servlet Basico sin JSP</a></li>
+		<li class="list-group-item"><a href="ejemplos/basico2.jsp">Ejemplo Servlet Basico con JSP</a></li>
+		<li class="list-group-item"><a href="ejemplos/basico3.jsp">Ejemplo Servlet Response Content Type</a></li>
+		<li class="list-group-item"><a href="ejemplos/basico4.jsp">Ejemplo Servlet Get y Post</a></li>
+		<li class="list-group-item"><a href="nombres">Nombres</a></li>
+		<li class="list-group-item"><a href="">JSP</a></li>
+		<li class="list-group-item"><a href="">JSTL - Java Server Tag Libreries</a></li>
+		<li class="list-group-item"><a href="">Session</a></li>
+		<li class="list-group-item"><a href="">Cookies</a></li>
+		<li class="list-group-item"><a href="">Filtros</a></li>
+		<li class="list-group-item"><a href="">Listeners o escuchadores de eventos</a></li>
+	</ul>
+
+
+
+<%@include file="resources/includes/footer.jsp"%>

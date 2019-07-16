@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ipartek.formacion</groupId>
@@ -18,7 +19,7 @@
 		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
 	</properties>
 
-		<!-- Librerias que vamos a usar u otros proyectos maven-->
+	<!-- Librerias que vamos a usar u otros proyectos maven -->
 	<dependencies>
 
 		<!-- Web Project 3.0 -->
@@ -26,7 +27,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${javax.servlet.api}</version>
-			<scope>provided</scope><!-- Nos lo provee el servidor de aplicaciones,-->
+			<scope>provided</scope><!-- Nos lo provee el servidor de aplicaciones, -->
 		</dependency>
 
 		<dependency>
@@ -47,9 +48,16 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
-			<!--Si no aparece scope al crear el proyecto se incluye la libreria-->
+			<!--Si no aparece scope al crear el proyecto se incluye la libreria -->
 		</dependency>
 
+
+		<!-- PDF -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.10</version>
+		</dependency>
 
 		<!-- Testing -->
 		<dependency>
@@ -96,6 +104,6 @@
 		</plugins>
 
 
-		<finalName>CancionesApp</finalName>
+		<finalName>uf2218</finalName>
 	</build>
 </project>
