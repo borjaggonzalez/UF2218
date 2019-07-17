@@ -14,8 +14,8 @@
 		<li class="list-group-item"><a href="ejemplos/basico3.jsp">Ejemplo Servlet Response Content Type</a></li>
 		<li class="list-group-item"><a href="ejemplos/basico4.jsp">Ejemplo Servlet Get y Post</a></li>
 		<li class="list-group-item"><a href="nombres">Nombres</a></li>
-		<li class="list-group-item"><a href="">JSP</a></li>
-		<li class="list-group-item"><a href="">JSTL - Java Server Tag Libreries</a></li>
+		<li class="list-group-item"><a href="jsp">JSP</a></li>
+		<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>
 		<li class="list-group-item"><a href="">Session</a></li>
 		<li class="list-group-item"><a href="">Cookies</a></li>
 		<li class="list-group-item"><a href="">Filtros</a></li>
