@@ -33,7 +33,7 @@ public class YoutubeController extends HttpServlet {
 		String op= request.getParameter("op");
 		
 		
-		switch ("op") {
+		switch (op) {
 		case "1":
 		request.setAttribute("videos", youtubeDAO.getAll());
 		request.getRequestDispatcher("youtube/index.jsp").forward(request, response);
