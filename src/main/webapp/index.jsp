@@ -2,7 +2,6 @@
 <%@include file="resources/includes/header.jsp"%>
 <%@include file="resources/includes/navbar.jsp"%>
 
-
 	
 	
 	<h1 class="text-success">Hello Java Web App 3.1</h1>
@@ -16,6 +15,7 @@
 		<li class="list-group-item"><a href="nombres">Nombres</a></li>
 		<li class="list-group-item"><a href="jsp">JSP</a></li>
 		<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>
+		<li class="list-group-item"><a href="ejemplos/el.jsp">EL - Expression Lenguage</a></li>
 		<li class="list-group-item"><a href="">Session</a></li>
 		<li class="list-group-item"><a href="">Cookies</a></li>
 		<li class="list-group-item"><a href="">Filtros</a></li>

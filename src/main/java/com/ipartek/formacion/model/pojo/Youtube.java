@@ -3,20 +3,23 @@ package com.ipartek.formacion.model.pojo;
 public class Youtube {
 
 	private int id;
-	private String titulo;
+	private String nombre;
 	private String codigo;
-	private int reproducciones;
+
 
 	public Youtube() {
 		super();
+		this.id=-1;
+		this.nombre="";
+		this.codigo="";
 	}
 
-	public Youtube(int id, String titulo, String codigo, int reproducciones) {
+	public Youtube(int id, String nombre, String codigo, int reproducciones) {
 		super();
 		setId(id);
-		setTitulo(titulo);
+		setNombre(nombre);
 		setCodigo(codigo);
-		setReproducciones(reproducciones);
+		
 	}
 
 	public int getId() {
@@ -27,12 +30,12 @@ public class Youtube {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getCodigo() {
@@ -43,18 +46,10 @@ public class Youtube {
 		this.codigo = codigo;
 	}
 
-	public int getReproducciones() {
-		return reproducciones;
-	}
-
-	public void setReproducciones(int reproducciones) {
-		this.reproducciones = reproducciones;
-	}
 
 	@Override
 	public String toString() {
-		return "Youtube [id=" + id + ", titulo=" + titulo + ", codigo=" + codigo + ", reproducciones=" + reproducciones
-				+ "]";
+		return "Youtube [id=" + id + ", nombre=" + nombre + ", codigo=" + codigo + "]";
 	}
 
 }

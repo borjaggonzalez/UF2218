@@ -25,12 +25,19 @@
 		</form>
 
 <%if(request.getAttribute("buscar")!=null){ %>
-		<p class="text-muted">Resultados para la busqueda de <strong>${buscar}</strong></p>
+
+	<div class="alert alert-info mt-4" role="alert">
+  		<span class="text-muted">Resultados para la busqueda de <strong>${buscar}</strong></span>
+  		 <a href="nombres" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true" >&times;</span>
+  </a>
+	</div>
+		
 <%} %>
 
 
 
-<div class=" shadow bg-dark card mt-4" >
+<div class=" shadow bg-dark card mt-2" >
   <div class="card-header text-white">
     <strong>Listado nombres</strong>
   </div>

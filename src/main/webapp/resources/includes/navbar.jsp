@@ -15,7 +15,7 @@
      			     Youtube
      			   </a>
        		 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        		<a class="dropdown-item" href="youtube/index.jsp">Listado</a>
+        		<a class="dropdown-item" href="youtube?op=1">Listado</a>
         		<a class="dropdown-item" href="youtube/formulario.jsp">Formulario</a>
          		<a class="dropdown-item" href="youtube/detalle.jsp">Detalle</a>
      	   </div>
