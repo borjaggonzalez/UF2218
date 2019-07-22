@@ -37,11 +37,11 @@ public class YoutubeDAO {
 				ResultSet rs = pst.executeQuery()) {
 
 			while (rs.next()) {
-				Youtube v = new Youtube();
+				/*Youtube v = new Youtube();
 				v.setId( rs.getInt("id") );
 				v.setNombre( rs.getString("nombre"));
-				v.setCodigo( rs.getString("codigo"));
-				lista.add(v);
+				v.setCodigo( rs.getString("codigo"));*/
+				lista.add(mapper(rs));
 			}
 		} catch (Exception e) {
 
@@ -104,10 +104,11 @@ public class YoutubeDAO {
 	
 	private boolean modificar(Youtube video) throws MysqlDataTruncation, MySQLIntegrityConstraintViolationException {
 		boolean resultado = false;
-		String sql = "UPDATE `v2019`.`video` SET `nombre`= ?  WHERE  `id`= ?;";
+		String sql = "UPDATE `v2019`.`video` SET `nombre`= ?, `codigo`=?  WHERE  `id`= ?;";
 		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setString(1, video.getNombre());
-			pst.setInt(2, video.getId());
+			pst.setString(2, video.getCodigo());
+			pst.setInt(3, video.getId());
 			resultado = doSave(pst, video);
 		} catch (MySQLIntegrityConstraintViolationException e) {
 			System.out.println("Video duplicado");
@@ -129,6 +130,7 @@ public class YoutubeDAO {
 			pst.setString(1, video.getNombre());
 			pst.setString(2, video.getCodigo());
 			resultado = doSave(pst, video);
+	
 		} catch (MySQLIntegrityConstraintViolationException e) {
 			System.out.println("Video duplicado");
 			throw e;
@@ -168,11 +170,10 @@ public class YoutubeDAO {
 		return resultado;
 	}
 	
-	/*
-	@Override
+
 	public boolean delete(int id) {
 		boolean resultado = false;
-		String sql = "DELETE FROM `rol` WHERE  `id`= ?;";
+		String sql = "DELETE FROM  `v2019`.`video` WHERE  `id`= ?;";
 		try (Connection con = ConnectionManager.getConnection(); PreparedStatement pst = con.prepareStatement(sql);) {
 			pst.setInt(1, id);
 			int affetedRows = pst.executeUpdate();
@@ -185,7 +186,7 @@ public class YoutubeDAO {
 		return resultado;
 	}
 	
-*/	
+
 
 	public Youtube mapper(ResultSet rs) throws SQLException {
 		Youtube video = new Youtube();

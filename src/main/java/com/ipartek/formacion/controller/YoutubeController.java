@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.controller.pojo.Alert;
 import com.ipartek.formacion.model.dao.YoutubeDAO;
 import com.ipartek.formacion.model.pojo.Youtube;
 import com.itextpdf.text.Document;
@@ -83,13 +84,10 @@ public class YoutubeController extends HttpServlet {
 			listar(request, response);
 		break;
 		case OP_FORM:
-			view=VIEW_FORM;
-			request.setAttribute("video", new Youtube());
-			request.setAttribute("op", op);
+			detalle(request, response);
 		break;
 		case OP_MODIFICAR:
 			detalle(request, response);
-		
 			break;
 		case OP_BORRAR:
 			detalle(request, response);
@@ -122,18 +120,24 @@ public class YoutubeController extends HttpServlet {
 	}
 	
 	protected void detalle(HttpServletRequest request, HttpServletResponse response) {
+		if(request.getParameter("id")!=null) {
 		String sid = request.getParameter("id");
 		int id = Integer.parseInt(sid);
 	
 		Youtube video = youtubeDAO.getById(id);
 		request.setAttribute("video", video);
 		request.setAttribute("op", op);
+		}else {
+			request.setAttribute("video", new Youtube());
+			request.setAttribute("op", op);
+		}
 		view=VIEW_FORM;
 	}
 	
 	protected void crearomodificar(HttpServletRequest request, HttpServletResponse response) {
 		String sid = request.getParameter("id");
 		int id = Integer.parseInt(sid);
+		
 		Youtube video = new Youtube();
 		video.setId(id);
 		video.setNombre(request.getParameter("nombre"));
@@ -141,6 +145,7 @@ public class YoutubeController extends HttpServlet {
 		
 		try {
 			youtubeDAO.save(video);
+
 			listar(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -149,7 +154,7 @@ public class YoutubeController extends HttpServlet {
 		//Youtube video = youtubeDAO.getById(id);
 		
 		
-		
+		request.setAttribute("mensaje", new Alert("success","Registro creado con exito"));
 		request.setAttribute("video", video);
 		request.setAttribute("op", op);
 	
@@ -157,7 +162,12 @@ public class YoutubeController extends HttpServlet {
 	
 	
 	private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+			
+		int id = Integer.parseInt(request.getParameter("id"));
+		youtubeDAO.delete(id);
+		request.setAttribute("mensaje", new Alert("success","Registro eliminado"));
+		listar(request, response);
+	
 		
 	}
 	
