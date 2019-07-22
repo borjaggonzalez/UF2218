@@ -10,6 +10,7 @@
     		  <li class="nav-item active">
      	 		  <a class="nav-link" href="index.jsp">Inicio <span class="sr-only">(current)</span></a>
     		  </li>
+    		  <c:if test="${usuario != null}">
      	  <li class="nav-item dropdown">
       			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      			     Youtube
@@ -19,8 +20,18 @@
         		<a class="dropdown-item" href="youtube?op=2">Formulario</a>
          		<a class="dropdown-item" href="youtube?op=5">Detalle</a>
      	   </div>
-      </li>
-
+      	</li>
+      		 </c:if>	
+		</ul>
+		 <ul class="navbar-nav mr-aut ">
+		  	<c:if test="${usuario == null}">
+	        	<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
+	        </c:if>
+	        <c:if test="${usuario != null}">
+	        	<li class="nav-item"><span class="nav-link text-light">${usuario}</span></li>
+	        	<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+	        </c:if>		       
+		</ul>
   	</div>
   </div>
 </nav>

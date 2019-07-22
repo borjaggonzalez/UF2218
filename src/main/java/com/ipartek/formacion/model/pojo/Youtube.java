@@ -1,9 +1,17 @@
 package com.ipartek.formacion.model.pojo;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Youtube {
 
 	private int id;
+	@NotNull
+	@Size(min =3, max = 150)
 	private String nombre;
+	
+	@NotNull
+	@Size(min =11, max = 11)
 	private String codigo;
 
 
@@ -29,7 +37,7 @@ public class Youtube {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}

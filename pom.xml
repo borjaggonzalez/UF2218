@@ -50,6 +50,20 @@
 			<version>5.1.46</version>
 			<!--Si no aparece scope al crear el proyecto se incluye la libreria -->
 		</dependency>
+		
+		
+		<!-- Validaciones Por Anotacion -->
+		  <dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.4.Final</version>
+		</dependency>
+		
 
 
 		<!-- PDF -->
