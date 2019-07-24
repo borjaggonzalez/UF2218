@@ -3,7 +3,7 @@
 <%@include file="../../resources/includes/navbar.jsp"%>
 
 <h1>Formulario Youtube</h1>
-<form action="youtube" method="post">
+<form action="backoffice/youtube" method="post">
 
   <div class="form-group">
   
@@ -22,19 +22,19 @@
 
 	<div class="form-group">
     
-    <input type="text" readonly class="form-control" name="id" id="id" placeholder="Mínimo 3 - Maximo 150" value="${video.id }">
+    <input type="text" readonly class="form-control" name="id" id="id"  value="${video.id }">
   </div>
 
   <div class="form-group">
     <label for="inputTitulo">Titulo</label>
-    <input type="text" class="form-control" name="nombre" id="inputTitulo" placeholder="Exactamente 11" value="${video.nombre }">
+    <input type="text" class="form-control" name="nombre" id="inputTitulo" placeholder="Mínimo 3 - Maximo 150" value="${video.nombre }">
   </div>
 
   
   <div class="form-group">
 
     <label for="inputCodigo">Código</label>
-    <input type="text" class="form-control" name="codigo" id="inputCodigo" placeholder="" value="${video.codigo}">
+    <input type="text" class="form-control" name="codigo" id="inputCodigo"  placeholder="Exactamente 11" value="${video.codigo}">
   </div>
   
   <!-- 

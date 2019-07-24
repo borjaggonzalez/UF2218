@@ -7,7 +7,7 @@
 
 <div class="row">
 <div class="col-10"> <h1>Listado Youtube</h1> </div>
-<div class="col-2 mt-2"> <a class="btn btn-success" href="youtube?op=<%=YoutubeController.OP_FORM%>" title="nuevo"><i class="fas fa-plus"></i> </a> </div>
+<div class="col-2 mt-2"> <a class="btn btn-success" href="backoffice/youtube?op=<%=YoutubeController.OP_FORM%>" title="nuevo"><i class="fas fa-plus"></i> </a> </div>
 </div>
 	
 
@@ -34,9 +34,9 @@
 		<td class="align-middle">${v.nombre}</td>
 		<td class="align-middle">
 		
-		<a class="btn btn-primary" href="youtube?op=<%=YoutubeController.OP_MODIFICAR%>&id=${v.id}" title="editar"><i class="fas fa-pencil-alt"></i></a>
-		<a class="btn btn-danger" href="youtube?op=<%=YoutubeController.OP_DETALLE%>&id=${v.id}" title="borrar"><i class="fas fa-play"></i></i></a>
-		<a class="btn btn-warning" href="youtube?op=<%=YoutubeController.OP_BORRAR%>&id=${v.id}" title="borrar"><i class="far fa-trash-alt"></i></a>
+		<a class="btn btn-primary" href="backoffice/youtube?op=<%=YoutubeController.OP_MODIFICAR%>&id=${v.id}" title="editar"><i class="fas fa-pencil-alt"></i></a>
+		<a class="btn btn-danger" href="backoffice/youtube?op=<%=YoutubeController.OP_DETALLE%>&id=${v.id}" title="borrar"><i class="fas fa-play"></i></i></a>
+		<a class="btn btn-warning" href="backoffice/youtube?op=<%=YoutubeController.OP_BORRAR%>&id=${v.id}" title="borrar"><i class="far fa-trash-alt"></i></a>
 		
 	
       
