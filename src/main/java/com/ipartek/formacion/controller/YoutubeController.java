@@ -2,6 +2,7 @@ package com.ipartek.formacion.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Set;
 
 import javax.servlet.ServletConfig;
@@ -15,6 +16,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import com.ipartek.formacion.controller.listener.UsuariosLogeadosListener;
 import com.ipartek.formacion.controller.pojo.Alert;
 import com.ipartek.formacion.model.dao.YoutubeDAO;
 import com.ipartek.formacion.model.pojo.Youtube;
@@ -23,12 +25,12 @@ import com.itextpdf.text.Document;
 /**
  * Servlet implementation class YoutubeController
  */
-@WebServlet("/youtube")
+@WebServlet("/backoffice/youtube")
 public class YoutubeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VIEW_INDEX = "backoffice/youtube/index.jsp";
-	private static final String VIEW_FORM = "backoffice/youtube/formulario.jsp";
-	private static final String VIEW_DETALLE = "backoffice/youtube/detalle.jsp";
+	private static final String VIEW_INDEX = "youtube/index.jsp";
+	private static final String VIEW_FORM = "youtube/formulario.jsp";
+	private static final String VIEW_DETALLE = "youtube/detalle.jsp";
 	private static String view = VIEW_INDEX;
 
 	public static final String OP_LISTAR = "1";
@@ -41,7 +43,9 @@ public class YoutubeController extends HttpServlet {
 
 	private static YoutubeDAO youtubeDAO;
 	private static String op;
-
+	private static Youtube ultimovideo=null;
+	private static ArrayList<Youtube> videos;
+	
 	ValidatorFactory factory;
 	Validator validator;
 
@@ -87,7 +91,7 @@ public class YoutubeController extends HttpServlet {
 
 		op = request.getParameter("op");
 		if (op == null) {
-			view = OP_LISTAR;
+			op = OP_LISTAR;
 		}
 
 		switch (op) {
@@ -128,19 +132,40 @@ public class YoutubeController extends HttpServlet {
 	}
 
 	protected void detalle(HttpServletRequest request, HttpServletResponse response) {
+		
 		if (request.getParameter("id") != null) {
 			String sid = request.getParameter("id");
 			int id = Integer.parseInt(sid);
-
+			
 			Youtube video = youtubeDAO.getById(id);
 			request.setAttribute("video", video);
 			request.setAttribute("op", op);
+			
+			
+			if(op.equals(OP_DETALLE)) {
+				
+				if(request.getSession().getAttribute("videos") == null) {
+					videos = new ArrayList<Youtube>();
+				}
+				
+				if(ultimovideo == null || ultimovideo.getId() != video.getId()) {
+					videos.add(video);
+					ultimovideo=video;
+				}
+			
+				
+			request.getSession().setAttribute("videos", videos);
+				
+			}					
+			
+			
 		} else {
 			request.setAttribute("video", new Youtube());
 			request.setAttribute("op", op);
 		}
 		
 		if(op.equals(OP_DETALLE)) {
+			
 			view= VIEW_DETALLE;
 		}else {
 			view = VIEW_FORM;
