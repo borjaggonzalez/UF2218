@@ -16,11 +16,14 @@
 		<li class="list-group-item"><a href="jsp">JSP</a></li>
 		<li class="list-group-item"><a href="jstl">JSTL - Java Server Tag Libreries</a></li>
 		<li class="list-group-item"><a href="ejemplos/el.jsp">EL - Expression Lenguage</a></li>
-		<li class="list-group-item"><a href="">Ejemplo de redireccion de errores</a></li>
-		<li class="list-group-item"><a href="">Session</a></li>
-		<li class="list-group-item"><a href="">Cookies</a></li>
-		<li class="list-group-item"><a href="">Filtros</a></li>
-		<li class="list-group-item"><a href="">Listeners o escuchadores de eventos</a></li>
+		<li class="list-group-item"><a href="">* - Ejemplo de redireccion de errores</a></li>
+		<li class="list-group-item"><a href="">* - Session</a></li>
+		<li class="list-group-item"><a href="">* - Cookies</a></li>
+		<li class="list-group-item"><a href="">* - Filtros</a></li>
+		<li class="list-group-item"><a href="">* - Listeners o escuchadores de eventos</a></li>
+		<li class="list-group-item"><a href="">* - Redireccion</a></li>
+		<li class="list-group-item"><a href="calculadora/index.jsp">Calculadora</a></li>
+		<li class="list-group-item"><a href="ahorcado/index.jsp">Ahorcado</a></li>
 	</ul>
 
 

@@ -1,6 +1,8 @@
 package com.ipartek.formacion.controller;
 
 import java.io.IOException;
+import java.net.InetAddress;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,11 +47,21 @@ public class LogInController extends HttpServlet {
 		if ( "admin".equals(usuario) && "admin".equals(password)) {
 			
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("usuario", "Paco");
+		  HttpSession session = request.getSession();
+			  // session.setMaxInactiveInterval(60*5); // 5 min
 			
-			request.setAttribute("mensaje", new Alert("success","Ongi Etorri " + usuario ) );			
-			request.getRequestDispatcher("backoffice/index.jsp").forward(request, response);
+			session.setAttribute("usuario", "usuario " + request.getRemoteAddr());
+			request.setAttribute("mensaje", new Alert("success","Ongi Etorri " + usuario ) );	
+			String callback = (String) session.getAttribute("callback");
+			
+			if(callback ==null){
+				request.getRequestDispatcher("backoffice/youtube").forward(request, response);
+			}else {
+				session.removeAttribute("callback");
+				response.sendRedirect(callback);
+			}
+				
+			
 			
 		}else {
 			

@@ -6,10 +6,10 @@
 
       <div class="row justify-content-center">
       <div class="col-md-8">
-<%@include file="../resources/includes/mensaje.jsp"%>
+	<%@include file="../resources/includes/mensaje.jsp"%>
 </div>
       
-            <div class="col-md-8">
+            <div class="col-md-8 mt-5">
                 <div class="card">
                     <div class="card-header">Register</div>
                     <div class="card-body">
