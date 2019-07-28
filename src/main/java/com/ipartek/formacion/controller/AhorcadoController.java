@@ -21,8 +21,11 @@ public class AhorcadoController extends HttpServlet {
 	public static final String OP_LETRA = "1";
 	private static String palabra;
 	private static char[] respuesta;
-	private int vidas = 7;
-	private int aciertos = 0 ;
+	private int vidas;
+	private int aciertos;
+	private int fallos;
+	private int lacertadas=0;
+	private boolean ganador = false;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -53,9 +56,10 @@ public class AhorcadoController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String op = request.getParameter("op");
-
+		if (op != null) {
 		switch (op) {
 		case OP_INICIAR:
+			palabra = null;
 			iniciar(request,response);
 			break;
 		case OP_LETRA:
@@ -65,25 +69,32 @@ public class AhorcadoController extends HttpServlet {
 		default:
 			break;
 		}
-
+		}
 		
 		request.getRequestDispatcher("ahorcado/index.jsp").forward(request, response);
 	}
 
 	
 	private void iniciar(HttpServletRequest request, HttpServletResponse response) {
-		palabra = request.getParameter("palabra").trim().toLowerCase();
+		palabra = request.getParameter("palabra").trim().toUpperCase();
 		if(palabra.isEmpty()) {
 			request.setAttribute("mensaje", new Alert("warning", "No has introducido una palabra"));
 		}else {
+			vidas = 6;
+			aciertos=0;
+			lacertadas=0;
+			fallos=0;
+			ganador=false;
 		int tamano = palabra.length();
-
+	
 		 respuesta = new char[tamano];
 
 		for (int i = 0; i < tamano; i++) {
 			respuesta[i] = '_';
 		}
-		
+		request.setAttribute("ganador", ganador);
+		request.setAttribute("fallos", fallos);
+		request.setAttribute("vidas", vidas);
 		request.setAttribute("palabra", palabra);
 		request.setAttribute("respuesta", respuesta);
 		}
@@ -91,21 +102,41 @@ public class AhorcadoController extends HttpServlet {
 	}
 	
 	private void comprobar(HttpServletRequest request, HttpServletResponse response) {
-	       int tamano = palabra.length();
-	       String op = request.getParameter("letra").trim().toLowerCase();
-	     
+		ganador = false;
+		if(vidas>0) {    
+		int tamano = palabra.length();
+	       aciertos=0;
+	       String op = request.getParameter("letra").trim().toUpperCase();
+	  
 	       if(op.isEmpty() ) {
 				request.setAttribute("mensaje", new Alert("warning", "No has introducido una letra"));
 			}else {
 		char letra = op.charAt(0);
 	       for (int i = 0; i < tamano; i++) {
 	    	   
-	    	   if (letra == palabra.toLowerCase().charAt(i)) {
+	    	   if (letra == palabra.toUpperCase().charAt(i)) {
 	    		   respuesta[i] = letra;
+	    		   aciertos = aciertos+1;
+	    	   }else {
+	    		
 	    	   }
 	    		 
 			}
-		
+	       
+	       if(aciertos == 0) {
+	    	   fallos = fallos+1;
+	    	   vidas = vidas-1;
+	       }else {
+	    	   lacertadas = lacertadas +aciertos;
+	    	   
+	    	if(lacertadas==tamano) {
+	    		ganador=true;
+	    	}
+	       }
+		}
+	       request.setAttribute("ganador",ganador);
+	       request.setAttribute("fallos", fallos);
+	       request.setAttribute("vidas", vidas);
 	       request.setAttribute("palabra", palabra);
 	       request.setAttribute("respuesta", respuesta);
 	}
