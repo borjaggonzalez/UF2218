@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
                 <span class="display-1 d-block">404</span>
-                <div class="mb-4 lead">TE ESTAS METIENDO DONDE NO TE LLAMAN</div>
+                <div class="mb-4 lead">LA PAGINA QUE BUSCAS NO SE ENCUENTRA AQUI </div>
                 <a href="index.jsp" class="btn btn-link">Ir a inicio</a>
             </div>
         </div>
