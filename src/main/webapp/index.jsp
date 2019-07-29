@@ -15,7 +15,7 @@
 	
 	</ul>
 
-<div class="accordion" id="accordionExample">
+<div class="accordion shadow" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
@@ -32,6 +32,7 @@
 		<li class="list-group-item"><a href="ejemplos/basico2.jsp">Ejemplo Servlet Basico con JSP</a></li>
 		<li class="list-group-item"><a href="ejemplos/basico3.jsp">Ejemplo Servlet Response Content Type</a></li>
 		<li class="list-group-item"><a href="ejemplos/basico4.jsp">Ejemplo Servlet Get y Post</a></li>
+		<li class="list-group-item"><a href="i18n">i18n - multi-idioma</a></li>
 		</ul>
       </div>
     </div>

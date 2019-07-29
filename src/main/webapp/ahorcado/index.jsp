@@ -6,6 +6,7 @@
 
 
 
+
 <h1 class="text-center">AHORCADO</h1>
 <%@include file="../resources/includes/mensaje.jsp"%>	
 <c:if test="${palabra == null }">
@@ -25,9 +26,29 @@
 <c:if test="${palabra != null }">
 
 <div class="row mt-2">
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="${palabra}">
- Solución
-</button></div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Solución
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="exampleModalLabel">Solución</h5>
+      </div> 
+      <div class="modal-body text-center">
+      ${palabra}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+       </div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 
 
@@ -42,11 +63,14 @@
 			</c:if>
 			<c:if test="${0 < vidas  }">
 				<c:forEach items="${respuesta}" var="letra">
-		${letra}
-		</c:forEach>
+					${letra}
+				</c:forEach>
+			</c:if>
+			<c:if test="${ganador}">
+			<br/>	<a class="btn btn-success" href="ahorcado">Volver a jugar</a>
 			</c:if>
 		</div>
-
+	
 		<div class="col-6 text-center">
 
 			<img src="resources/img/vidas/${fallos}.gif" alt="vidas 7" />
@@ -65,7 +89,7 @@
 				</div>
 				<div class="form-group">
 
-					<input type="text" class="form-control" name="letra" id="letra"	maxlength="1" placeholder="Introducela la letra" required>
+					<input type="text" class="form-control" name="letra" id="letra"	maxlength="1" placeholder="Introducela la letra" autofocus required>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Comprobar</button>
@@ -74,5 +98,13 @@
 		</c:if>
 	</c:if>
 </c:if>
+
+
+<script>
+$('#exampleModal').on('shown.bs.modal', function () {
+	  $('#myInput').trigger('focus')
+	})
+
+</script>
 
 <%@include file="../resources/includes/footer.jsp"%>

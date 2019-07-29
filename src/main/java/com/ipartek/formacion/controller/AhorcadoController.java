@@ -102,8 +102,7 @@ public class AhorcadoController extends HttpServlet {
 	}
 	
 	private void comprobar(HttpServletRequest request, HttpServletResponse response) {
-		ganador = false;
-		if(vidas>0) {    
+		if(vidas>0 || ganador==true) {    
 		int tamano = palabra.length();
 	       aciertos=0;
 	       String op = request.getParameter("letra").trim().toUpperCase();

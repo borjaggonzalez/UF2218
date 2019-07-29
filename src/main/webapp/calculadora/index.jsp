@@ -31,9 +31,9 @@
 </div>
 
 <div class="resultado">
-
-<h2 class="mb-2">Resultado:  ${total}</h2>
-
+<c:if test="${total!=null }">
+<h2 class="mb-2">Resultado:<fmt:formatNumber type="number" pattern="#,###.##" value="${total}" /></p></h2>
+</c:if>
 
 
 

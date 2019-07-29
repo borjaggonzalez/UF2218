@@ -1,4 +1,4 @@
-	<nav class="navbar   fixed-top  navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
 	<div class="container">
   <a class="navbar-brand" href="#">UF2218</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +39,20 @@
   </div>
 </nav>
 
+
+ 
 <!-- Fin Navbar -->
+<!-- Inicio Nav idiomas -->
+<div class="border-bottom">
+	<div class="d-flex flex-row-reverse bd-highlight container mt-2 mb-2 "> 
+ 		 <div class="pl-2 bd-highlight"><a href="i18n?idiomaSeleccionado=es_ES&ruta=<%=request.getRequestURI().split("uf2218/")[1] %>">es</a></div> 
+ 		 <div class="pl-2 bd-highlight"><a href="i18n?idiomaSeleccionado=en_GB&ruta=<%=request.getRequestURI().split("uf2218/")[1] %>">en</a></div>
+ 		 <div class="pl-2 bd-highlight"><a class="active" href="i18n?idiomaSeleccionado=eu_ES&ruta=<%=request.getRequestURI().split("uf2218/")[1] %>">eu</a></div>
+
+	</div>
+  </div>
 
 
 
+<!-- Fin nav idiomas -->
 	<main class="container pt-2 mt-5">

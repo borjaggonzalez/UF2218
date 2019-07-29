@@ -98,13 +98,13 @@ public class CalculadoraController extends HttpServlet {
 			total = 0.00F;
 			request.setAttribute("mensaje", new Alert("warning", "No has metido un valor valido"));
 			
-		}
-
+		}finally {
+			
 		total = num1 + num2;
 		request.setAttribute("num1", num1);
 		request.setAttribute("num2", num2);
 		request.setAttribute("total", total);
-
+		}
 	}
 
 	private void restar(HttpServletRequest request, HttpServletResponse response) {
@@ -130,12 +130,14 @@ public class CalculadoraController extends HttpServlet {
 			total = 0.00F;
 			request.setAttribute("mensaje", new Alert("warning", "No has metido un valor valido"));
 			
+		}finally {
+			total = num1 - num2;
+			request.setAttribute("num1", num1);
+			request.setAttribute("num2", num2);
+			request.setAttribute("total", total);
 		}
 
-		total = num1 - num2;
-		request.setAttribute("num1", num1);
-		request.setAttribute("num2", num2);
-		request.setAttribute("total", total);
+
 
 	}
 
@@ -163,12 +165,13 @@ public class CalculadoraController extends HttpServlet {
 			total = 0.00F;
 			request.setAttribute("mensaje", new Alert("warning", "No has metido un valor valido"));
 			
-		}
+		}finally {
 
 		total = num1 * num2;
 		request.setAttribute("num1", num1);
 		request.setAttribute("num2", num2);
 		request.setAttribute("total", total);
+		}
 
 	}
 
@@ -196,7 +199,7 @@ public class CalculadoraController extends HttpServlet {
 			total = 0.00F;
 			request.setAttribute("mensaje", new Alert("warning", "No has metido un valor valido"));
 			
-		}
+		}finally {
 		
 		if(0.00 != num1 && 0.00 != num2) {
 			total = num1 / num2;
@@ -214,5 +217,6 @@ public class CalculadoraController extends HttpServlet {
 		request.setAttribute("num1", num1);
 		request.setAttribute("num2", num2);
 		
+		}
 	}
 }
